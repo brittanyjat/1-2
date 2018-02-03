@@ -5,24 +5,10 @@ import { withRouter } from 'react-router';
 import headerFunction from './headerFunction';
 
 class Header extends Component {
-    constructor(props){
-        super(props);
-
-        this.state = {
-            locationId: ''
-        };
-    }
-
     render() {
         var { location } = this.props;
         console.log(this.props)
         // console.log(this.state)
-        const mainHeader =
-            <div className='Shelves-header'>
-                <img src={Logo} alt='shelfie-logo' className='logo' />
-                <span className='shelves-header-span'>SHELFIE</span>
-            </div>;
-
         const shelfHeader =
             <div>
                 <div>
