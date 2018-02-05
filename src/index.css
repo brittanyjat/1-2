@@ -5,24 +5,38 @@ body {
   padding: 0;
 }
 
+/* ----- HOME PAGE ----- */
 .home-header {
   background-color: #AB2A19;
   width: 100%;
   height: 100px;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: center;
   justify-content: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
-.bin-header {
-  display: -ms-flexbox;
+.logo {
+  height: 50px;
+}
+
+.shelf-container {
   display: flex;
-  -ms-flex-pack: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.shelf {
+  background-color: #D34735;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* ----- SHELF PAGE ----- */
+
+.bin-header {
+  display: flex;
   justify-content: center;
-  -ms-flex-align: center;
   align-items: center;
   height: 100px;
 }
@@ -36,6 +50,10 @@ body {
   justify-content: center;
 }
 
+.bin-logo-container.bin-menu {
+  width: 10%;
+}
+
 .shelf-label {
   background-color: #D34735;
   height: 100%;
@@ -44,48 +62,24 @@ body {
   align-items: center;
 }
 
+.add-bin {
+  color: black;
+  background-color: #ffb8af;
+}
+
+/* ----- BIN HEADER -----*/
 .bin-detail-header {
   background-color: #ed6b5a;
-}
-
-h1 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
+  height: 100%;
+  width: 70%;
   padding-left: 20px;
-  font-size: 30px;
-  color: white;
-}
-
-.logo {
-  height: 50px;
-}
-
-.shelf-container {
-  display: -ms-flexbox;
+  min-width: 514px;
   display: flex;
-  -ms-flex-align: center;
   align-items: center;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin-top: 20px;
 }
 
-.shelf {
-  background-color: #D34735;
-  color: white;
-  margin-bottom: 20px;
-}
-
-.main-button {
-  width: 500px;
-  height: 60px;
-  /* margin-bottom: 20px; */
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
+.shelf-label.bin-menu {
+  width: 20%;
 }
 
 .full-bin {
@@ -93,27 +87,36 @@ h1 {
   color: white;
 }
 
-.add-bin {
-  color: black;
-  background-color: #ffb8af;
+/* ----- BINS ----- */
+#bin-container {
+  padding: 25px;
+  margin-left: 8%;
+  display: flex;
 }
 
-.left-detail {
-  min-width: 200px;
+
+.left-container {
+  max-width: 200px;
+  max-height: 200px;
   display: block;
+  padding-right: 25px;
 }
 
-.right-detail {
+.right-container {
   display: block;
-  margin-left: 25px;
 }
 
 .detail-button {
   width: 200px;
   background-color: #d8d8d8;
-  color: black;
   height: 61px;
   font-size: 30px;
+}
+
+.edit-delete-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 524px;
 }
 
 .save-button {
@@ -124,31 +127,30 @@ h1 {
   font-size: 30px;
 }
 
-input {
+.save-button.add {
+  width: 524px;
+}
+
+input, h3{
   border: 1px solid #ab2a19;
   border-radius: 3px;
   padding: 12px;
-  min-width: 500px;
-  width: auto;
+  width: 500px;
   font-size: 30px;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
   margin-top: 0;
   margin-left: 10px;
   margin-bottom: 3px;
 }
 
 button {
-  font-family: 'Open Sans', sans-serif;
   border-radius: 3px;
   font-size: 30px;
   border: none;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -158,4 +160,29 @@ a:link {
 
 .shelf-history {
   cursor: pointer;
+}
+
+#add-inventory-container {
+  width: 550px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  padding-left: 20px;
+  font-size: 30px;
+  color: white;
+}
+
+.main-button {
+  width: 500px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

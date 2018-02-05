@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default class BinInfo extends Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const { number, addNew, binDetails, available } = this.props;
         return (
             <div className='shelf-container'>

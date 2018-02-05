@@ -1,5 +1,5 @@
-export default function headerFuncion(str){
-    var test1 = str.replace('/', ' ');
-    var test2 = test1.replace('/', ' ');
-    return test2;
+var headerFunction = (str) => {
+    return str.split('').splice(0,1).join('')
 }
+
+export default headerFunction;

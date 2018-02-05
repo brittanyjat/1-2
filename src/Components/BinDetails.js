@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Logo from '../logo.png';
 import { Link } from 'react-router-dom';
+import headerFunction from './headerFunction';
 
 export default class BinDetails extends Component {
     constructor() {
@@ -19,7 +20,7 @@ export default class BinDetails extends Component {
         this.deleteItem = this.deleteItem.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const { id } = this.props.match.params;
         const { history } = this.props;
         axios.get(`/api/bin/${id}`).then(res => {
@@ -43,18 +44,16 @@ export default class BinDetails extends Component {
 
     saveChange() {
         const { price, name } = this.state;
+        const { history } = this.props;
         const { id } = this.props.match.params;
-        // const { history } = this.props;
 
         axios.put(`/api/bin/${id}`, { name, price }).then(res => {
-            // console.log(res.data)
-            // history.goBack();
             this.setState({
                 edit: false
             });
+            history.goBack(-1);
         });
     }
-
 
     deleteItem() {
         const { id } = this.props.match.params;
@@ -66,52 +65,56 @@ export default class BinDetails extends Component {
     }
 
     render() {
-        // console.log(this.props.match)
-        // console.log(this.state)
-        console.log(this.props)
+        // console.log(this.props)
+        // console.log(this.state.edit)
         const { item, name, price, edit } = this.state;
-        const {id} = this.props.match.params;
+        const { id } = this.props.match.params;
         const { history } = this.props;
 
         const editMode =
-            <div className='edit-container'>
-                <p>Name: </p>
+            <div>
+                <p>Name:</p>
                 <input onChange={(event) => this.handleChange('name', event.target.value)} value={name} />
                 <p>Price:</p>
                 <input onChange={(event) => this.handleChange('price', event.target.value)} value={price} />
-                {/* <input onChange={(event) => this.handleChange('image', event.target.value)} value={image} /> */}
-                <br /><button className='save-button' onClick={this.saveChange}>Save</button>
             </div>
 
-        const displayBins =
-            <div className='right-detail'>
-                <p>Name: {name}</p>
-                <p>Price: {price}</p>
-                <button className='detail-button' onClick={() => this.handleChange('edit', true)}>Edit</button>
+        const readMode =
+            <div>
+                <p>Name:</p>
+                <h3>{name}</h3>
+                <p>Price:</p>
+                <h3>{price}</h3>
             </div>
-
 
         return (
             <div>
-                <header>
-                    <div className='bin-header-content'>
-                        <div className='bin-logo-container'>
-                            <Link to='/'><img src={Logo} alt='shelfie-logo' className='logo bin-logo' /></Link>
-                        </div>
-                        <div className='shelf-label'>
-                            <h1 onClick={() => history.goBack()} className='shelf-history'>Shelf {id.split('').splice(0,1).join('')}</h1>
-                        </div>
-                        <div className='bin-detail-header'>
-                            <h1>Bin {id.split('').splice(1,1).join('')}</h1>
-                        </div>
+                <header className='bin-header'>
+                    <div className='bin-logo-container bin-menu'>
+                        <Link to='/'><img src={Logo} alt='shelfie-logo' className='logo bin-logo' /></Link>
+                    </div>
+                    <div className='shelf-label bin-menu'>
+                        <h1 onClick={() => history.goBack()} className='shelf-history'>Shelf {id.split('').splice(0, 1).join('')}</h1>
+                    </div>
+                    <div className='bin-detail-header'>
+                        <h1>Bin {headerFunction(id)}</h1>
                     </div>
                 </header>
-                <div className='detail-container'>
+
+                <div>
                     {item ?
-                        <div>
-                            <img className='left-detail' src={item.image} alt='bin-thumbnail' />
-                            {edit ? editMode : displayBins}
-                            <button className='detail-button' onClick={this.deleteItem}>Delete</button>
+                        <div id='bin-container'>
+                            <img className='left-container' src={item.image} alt='bin-thumbnail' />
+                            <div className='right-container'>
+                                <div className='container-content'>
+                                    {edit ? editMode : readMode}
+                                    <div className='edit-delete-buttons'>
+                                        {edit ? <button className='save-button' onClick={this.saveChange}>Save</button>
+                                              : <button className='detail-button' onClick={() => this.handleChange('edit', true)}>Edit</button>}
+                                        <button className='detail-button' onClick={this.deleteItem}>Delete</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         :
                         null
