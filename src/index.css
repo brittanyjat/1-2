@@ -5,8 +5,9 @@ body {
   padding: 0;
 }
 
-/* ----- HOME PAGE ----- */
+/* //========== CORE 22C-2 .  ==========// */
 .home-header {
+  /* //========== CORE 23E BACKGROUND COLOR  && 25F DISPLAY && 27C JUSTIFY CONTENT && 27D ALIGN ITEMS==========// */
   background-color: #AB2A19;
   width: 100%;
   height: 100px;
@@ -19,10 +20,12 @@ body {
   height: 50px;
 }
 
+/* ========== CORE 24C MARGIN && 27F FLEX DIRECTION && 27G FLEX========== */
 .shelf-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+  
   margin-top: 20px;
 }
 
@@ -88,11 +91,15 @@ body {
 }
 
 /* ----- BINS ----- */
-#bin-container {
+
+
+/* //========== CORE 22C-1 #  ==========// */
+#bin-container { 
   padding: 25px;
   margin-left: 8%;
   display: flex;
 }
+
 
 
 .left-container {
@@ -132,8 +139,10 @@ body {
 }
 
 input, h3{
+  /* //========== CORE 24D BORDER  ==========// */
   border: 1px solid #ab2a19;
   border-radius: 3px;
+  /* //========== CORE 24E PADDING ==========// */
   padding: 12px;
   width: 500px;
   font-size: 30px;
@@ -168,6 +177,7 @@ a:link {
   padding: 25px;
 }
 
+/* ========== CORE 23D FONT WEIGHT, COLOR SIZE  ========== */
 * {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;

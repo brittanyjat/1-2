@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../logo.png';
 import headerFunction from './headerFunction';
+import binFunction from './binFunction';
 
 export default class AddNew extends Component {
     constructor() {
@@ -50,7 +51,7 @@ export default class AddNew extends Component {
                         <h1 onClick={() => history.goBack()} className='shelf-history'>Shelf {headerFunction(id)}</h1>
                     </div>
                     <div className='bin-detail-header'>
-                        <h1>Add to Bin {headerFunction(id)}</h1>
+                        <h1>Add to Bin {binFunction(id)}</h1>
                     </div>
                 </header>
                 <div id='add-inventory-container'>

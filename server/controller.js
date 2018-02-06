@@ -1,8 +1,8 @@
 module.exports = {
-    shelves: (req, res) => {
+    shelves: (req, res) => {  //==========> SIM1 74M REQUEST HANDLER FUNCTIONS <==========//
         const db = req.app.get('db');
 
-        db.shelves(req.params.id).then(shelves => {
+        db.shelves(req.params.id).then(shelves => { //==========> SIM1 76D PARAMS <==========//
             let maxBins = 5;
             let bins = [];
 
@@ -13,10 +13,10 @@ module.exports = {
                     bins[i] = null;
                 }
             };
-            res.status(200).send(bins);
+            res.status(200).send(bins);  //==========> SIM1 74L .STATUS && 74H .SEND<==========//
         }).catch(err => {
             console.log(err)
-            res.status(500).send(err)
+            res.status(500).send(err)  
         })
     },
 

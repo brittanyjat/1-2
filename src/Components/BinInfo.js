@@ -5,6 +5,8 @@ export default class BinInfo extends Component {
     render() {
         // console.log(this.props)
         const { number, addNew, binDetails, available } = this.props;
+
+//========== SIM1 38 RECEIVING AND RENDERING PROPS ==========//
         return (
             <div className='shelf-container'>
                 {

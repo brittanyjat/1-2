@@ -30,6 +30,7 @@ export default class Bins extends Component {
         const binDisplay = this.state.bins.map((bin, i) => (
             bin
                 ?
+//========== SIM1 36E (SENDING PROPS TO BININFO) ==========//
                 <BinInfo key={i} number={i + 1} binDetails={`/bin/${id}${i + 1}`} available={true} />
                 :
                 <BinInfo key={i} number={i + 1} addNew={`/create/${id}${i + 1}`} available={false} />
